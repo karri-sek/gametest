@@ -17,7 +17,7 @@ public class ThreadExercise {
 		if (numbers == null)
 			return 0;
 
-		final ForkJoinPool pool = new ForkJoinPool(0);
+		final ForkJoinPool pool = new ForkJoinPool(10);
 		final RicursiveCalculator task = new RicursiveCalculator(numbers);
 		return pool.invoke(task);
 	}
@@ -43,12 +43,12 @@ public class ThreadExercise {
 				final int mid = currentLength / 2;
 
 				// splitting tasks
-				final RicursiveCalculator subTask = new RicursiveCalculator(Arrays.copyOfRange(numbers, 0, mid));
+				final RicursiveCalculator subTask = new RicursiveCalculator(Arrays.copyOfRange(numbers, 0, mid + 1));
 				subTask.fork();
 				final RicursiveCalculator subTask2 = new RicursiveCalculator(Arrays.copyOfRange(numbers, mid + 1, currentLength));
-
+				subTask2.fork();
 				// combining results
-				return subTask.join() + subTask2.compute();
+				return subTask.join() + subTask2.join();
 			}
 		}
 
