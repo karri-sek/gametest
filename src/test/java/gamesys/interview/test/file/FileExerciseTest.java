@@ -2,6 +2,7 @@ package gamesys.interview.test.file;
 
 import gamesys.file.FileExercise;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,10 +18,12 @@ public class FileExerciseTest {
 		fileExercise = new FileExercise();
 	}
 
-	@Test
-	public void testFileExist() {
+    @Test
+    public void testFileExistWithCorrectPath() {
+        String path = "src/main/resources/META-INF/files/samplefile.txt";		;
+        Assert.assertEquals(true, fileExercise.checkIsInputFileExists(path));
 
-	}
+    }
 
 	@Test
 	public void testFileCDontentReversed() {
