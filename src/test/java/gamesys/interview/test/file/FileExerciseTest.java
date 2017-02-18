@@ -25,6 +25,12 @@ public class FileExerciseTest {
 
     }
 
+    @Test
+    public void shouldReturnFalseWhenInValidFilePath() {
+        String path = "src/main/resources/META-INF/samplefile.txt";		;
+        Assert.assertEquals(false, fileExercise.checkIsInputFileExists(path));
+    }
+
 	@Test
 	public void testFileCDontentReversed() {
 
