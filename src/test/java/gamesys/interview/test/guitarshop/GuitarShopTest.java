@@ -6,19 +6,24 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GuitarShopTest {
 
 	private List<String[]> data;
 
 	private GuitarShop service;
-
 	@Before
-	public void setUp() {
-		// TODO read csv file and fill data obj...
-		// initialize service
+	public void setUp() throws IOException, URISyntaxException {
+		service = new GuitarShop();
+		data = Files.readAllLines(Paths.get("src/main/resources/META-INF/csv/guitar-db.csv"))
+				.stream().skip(1).map(line -> line.split(";"))
+				.collect(Collectors.toList());
 	}
 
 	@Test
