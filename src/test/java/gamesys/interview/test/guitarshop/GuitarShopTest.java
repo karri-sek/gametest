@@ -1,6 +1,7 @@
 package gamesys.interview.test.guitarshop;
 
 import gamesys.guitarshop.GuitarShop;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -60,6 +61,13 @@ public class GuitarShopTest {
 	public void testAvarageElectric() {
 		double avg = service.getAvgPriceByType(data, "electric");
 		Assert.assertEquals(3011.21, avg, 0.01);
+	}
+
+
+	@After
+	public void tearDown() {
+		service = null;
+		data = null;
 	}
 
 }
