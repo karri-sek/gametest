@@ -1,12 +1,13 @@
 package gamesys.interview.test.guitarshop;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-
+import gamesys.guitarshop.GuitarShop;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 public class GuitarShopTest {
 

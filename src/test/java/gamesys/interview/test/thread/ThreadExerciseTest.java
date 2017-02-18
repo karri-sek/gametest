@@ -3,6 +3,7 @@ package gamesys.interview.test.thread;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import gamesys.thread.ThreadExercise;
 
 public class ThreadExerciseTest {
 
