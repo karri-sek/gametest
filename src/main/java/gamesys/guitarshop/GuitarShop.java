@@ -1,5 +1,8 @@
 package gamesys.guitarshop;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +14,12 @@ public class GuitarShop {
 				.filter(line -> type.equalsIgnoreCase(line.type) || type.isEmpty())
 				.collect(Collectors.averagingDouble(line -> line.cost));
 		return average;
+	}
+
+	private List<String[]> getData() throws IOException {
+		return Files.readAllLines(Paths.get("src/main/resources/META-INF/csv/guitar-db.csv"))
+				.stream().skip(1).map(line -> line.split(";"))
+				.collect(Collectors.toList());
 	}
 
 
