@@ -10,5 +10,6 @@ end point to hit: http://localhost:8080/interview-test/guitar-shop/get-average-p
 
 Assumptions: If no type specified, i considered classic as default one.
 
-Thanks,
-Sekhar.
+Note: Please run the pom.xml, to check all the tests are passing or not.
+
+~Sekhar.
